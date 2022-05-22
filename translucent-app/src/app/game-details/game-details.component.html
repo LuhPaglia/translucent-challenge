@@ -1,0 +1,44 @@
+<div class="game-title">
+  <b>{{data.title}}</b>
+</div>
+<br/>
+<br/>
+<div class="game-details">
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+      <img src={{data.urlImage}} alt="Girl in a jacket" width="300" height="200">
+    </mat-grid-tile>
+    <mat-grid-tile class="game-info">
+      <div style="top: 10%">
+        <p><b>Release Year:</b> {{data.releaseYear}}</p>
+      </div>
+      <div style="top: 30%">
+        <p><b>Console:</b> {{data.console}}</p>
+      </div>
+      <div style="top: 50%">
+        <p><b>Completed:</b> {{data.completed}}</p>
+      </div>
+      <div style="top: 70%">
+        <p><b>Date of completion:</b> {{data.dateCompleted}}</p>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="game-button">
+      <div style="left: 25%">
+        <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+        (click)="openDialogEditGame(data)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+      <div style="left: 60%">
+        <button mat-fab color="warn" aria-label="Example icon button with a delete icon"
+        (click)="openDialogDeleteGame(data)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <p><b>Personal Notes:</b> {{data.personalNotes}}</p>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+

@@ -1,0 +1,17 @@
+.full-width {
+  width: 100%;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 10px;
+}
+
+.radio{
+  #yes{
+    position: relative;
+    left: 05%;
+  }
+  #no{
+    position: relative;
+    left: 08%;
+  }
+}

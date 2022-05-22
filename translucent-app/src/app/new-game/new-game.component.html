@@ -1,0 +1,54 @@
+<section class="container">
+  <form class="form-new-game" (ngSubmit)="submit()">
+    <h2 class="form-new-game__title">Add a New Game</h2>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Title</mat-label>
+      <input #title matInput type="text" maxlength="100" id="title" [(ngModel)]="newGame.title" name="title">
+      <mat-hint align="start"><strong></strong> </mat-hint>
+      <mat-hint align="end">{{title.value.length}} / 100</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Release Year</mat-label>
+      <input matInput  type="number" id="releaseYear" [(ngModel)]="newGame.releaseYear" name="releaseYear"/>
+      <mat-error *ngIf="!isValidYear">
+        The year is lower than the 1970
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Console</mat-label>
+      <mat-select id="console" [(ngModel)]="newGame.console" name="console">
+        <mat-option value="XBOXONE">XBox One</mat-option>
+        <mat-option value="PS4">Playstation 4</mat-option>
+        <mat-option value="SWITCH">Nintendo Switch</mat-option>
+        <mat-option value="PS5">Playstation 5</mat-option>
+        <mat-option value="PC">PC</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-radio-group aria-label="Select an option" id="completed"[(ngModel)]="newGame.completed" name="completed">
+      <div class="radio">
+        <mat-label>Completed:</mat-label>
+        <mat-radio-button  id="yes" value="YES">Yes</mat-radio-button>
+        <mat-radio-button id="no" value="NO">No</mat-radio-button>
+      </div>
+    </mat-radio-group>
+    <br/>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Date of completion</mat-label>
+      <input matInput type="date" id="date-completion" [(ngModel)]="newGame.dateCompletion" name="date-completion">
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Personal Notes</mat-label>
+        <textarea matInput #notes maxlength="256" placeholder="Ex. I need help with..."
+        type="text" id="personalNotes" [(ngModel)]="newGame.personalNotes" name="personalNotes"></textarea>
+        <mat-hint align="start"><strong></strong> </mat-hint>
+      <mat-hint align="end">{{notes.value.length}} / 256</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>URL Image</mat-label>
+      <input matInput type="text" id="urlImage" [(ngModel)]="newGame.urlImage" name="urlImage">
+    </mat-form-field>
+    <div class="button-wrapper">
+      <button mat-raised-button color="primary">Submit</button>
+    </div>
+  </form>
+</section>
