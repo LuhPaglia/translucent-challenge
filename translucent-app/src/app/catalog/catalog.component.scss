@@ -15,11 +15,10 @@
 .demo-row-is-clicked {
   font-weight: bold;
 }
-
 .new_game{
-  position: relative;
+  position: absolute;
   left: 90%;
-  top: 08%;
+  top: 2%;
 
   &__icon {
     color: #3f51b5;

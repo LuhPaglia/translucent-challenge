@@ -30,7 +30,9 @@ export class CatalogComponent{
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.service.getAllGames().subscribe((games: Game[]) => {this.listGames = games;});
+      this.delay(500).then(() =>
+      this.service.getAllGames().subscribe((games: Game[]) => {this.listGames = games;})
+      );
     });
   }
 
@@ -40,7 +42,9 @@ export class CatalogComponent{
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.service.getAllGames().subscribe((games: Game[]) => {this.listGames = games;});
+      this.delay(500).then(() =>
+      this.service.getAllGames().subscribe((games: Game[]) => {this.listGames = games;})
+      );
     });
   }
 
@@ -52,10 +56,12 @@ export class CatalogComponent{
   numberofYears(data: string){
     var dateActual = new Date(Date.now());
     var actualDate = dateActual.toISOString().substring(0, 4);
-    console.log(actualDate)
-    console.log(data)
 
     return Number(actualDate ) - Number(data);
+  }
+
+  delay(time: number) {
+    return new Promise(resolve => setTimeout(resolve, time));
   }
 
 }
