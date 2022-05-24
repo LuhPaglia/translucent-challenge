@@ -28,7 +28,7 @@ http://localhost:8081/swagger-ui.html
 
 ## 🛠️ Dependencies
 
-Mencione as ferramentas que você usou para criar seu projeto
+The main dependencies used were:
 
 * [Spring Framework](https://spring.io/) 
 * [Maven](https://maven.apache.org/)
