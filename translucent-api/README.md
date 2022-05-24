@@ -30,10 +30,11 @@ http://localhost:8081/swagger-ui.html
 
 The main dependencies used were:
 
-* [Spring Framework](https://spring.io/) 
+* [Java 17](https://www.java.com/en/) 
+* [Spring Framework 2.6.7](https://spring.io/) 
 * [Maven](https://maven.apache.org/)
-* [MySQL](https://www.mysql.com/) 
-* [Lombok](https://projectlombok.org/)
+* [MySQL ](https://www.mysql.com/) 
+* [Lombok 1.18.24](https://projectlombok.org/)
 
 
 ## ✒️ Developers
