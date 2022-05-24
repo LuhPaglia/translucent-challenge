@@ -19,17 +19,17 @@
         <p><b>Completed:</b> {{data.completed}}</p>
       </div>
       <div style="top: 70%">
-        <p><b>Date of completion:</b> {{data.dateCompleted}}</p>
+        <p><b>Date of completion:</b> {{formatDate(data.dateCompletion)}}</p>
       </div>
     </mat-grid-tile>
     <mat-grid-tile class="game-button">
-      <div style="left: 25%">
+      <div style="left: 35%">
         <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
         (click)="openDialogEditGame(data)">
           <mat-icon>edit</mat-icon>
         </button>
       </div>
-      <div style="left: 60%">
+      <div style="left: 55%">
         <button mat-fab color="warn" aria-label="Example icon button with a delete icon"
         (click)="openDialogDeleteGame(data)">
           <mat-icon>delete</mat-icon>

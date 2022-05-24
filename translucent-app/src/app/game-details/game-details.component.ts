@@ -37,12 +37,17 @@ export class GameDetailsComponent implements OnInit {
 
   openDialogEditGame(data: Game): void {
     const dialogRef = this.dialog.open(EditGameComponent, {
-      width: '50%',
+      width: '30%',
       data: data,
     });
 
     dialogRef.afterClosed().subscribe(result => {
     });
+  }
+
+  formatDate(data: string){
+    var date = new Date(data);
+    return data == null? "":date.toISOString().substring(0, 10);
   }
 
 }

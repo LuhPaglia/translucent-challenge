@@ -44,4 +44,18 @@ export class CatalogComponent{
     });
   }
 
+  formatDate(data: string){
+    var date = new Date(data);
+    return data == null? "":date.toISOString().substring(0, 10);
+  }
+
+  numberofYears(data: string){
+    var dateActual = new Date(Date.now());
+    var actualDate = dateActual.toISOString().substring(0, 4);
+    console.log(actualDate)
+    console.log(data)
+
+    return Number(actualDate ) - Number(data);
+  }
+
 }

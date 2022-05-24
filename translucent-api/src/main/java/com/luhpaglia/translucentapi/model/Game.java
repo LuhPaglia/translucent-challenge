@@ -13,6 +13,7 @@ public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(length = 100)
     private String title;
     private Integer releaseYear;
     private Console console;
@@ -21,6 +22,7 @@ public class Game {
     @Column(length = 256)
     private String personalNotes;
     private Integer rate;
+    @Column(length = 1000)
     private String urlImage;
 
     public Game(String title, Integer releaseYear, Console console, Boolean completed, Calendar dateCompletion, String personalNotes, Integer rate, String urlImage) {

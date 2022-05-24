@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Game } from '../models/game.module';
+import { PutGame } from '../models/put-game.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
 
-  private backendUrl: string = "http://localhost:8080/";
+  private backendUrl: string = "http://localhost:8081/catalog/";
   private gamesList: Game[];
 
   constructor(private httpClient: HttpClient) { this.gamesList = []}
@@ -27,5 +28,9 @@ export class GameService {
 
   deleteGame(id: number): Observable<Game[]>{
     return this.httpClient.delete<Game[]>(this.backendUrl+id);
+  }
+
+  putGame(putGame: PutGame): Observable<Game[]>{
+    return this.httpClient.put<Game[]>(this.backendUrl, putGame);
   }
 }

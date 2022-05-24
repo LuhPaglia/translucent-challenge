@@ -1,11 +1,13 @@
 package com.luhpaglia.translucentapi.controller;
 
 import com.luhpaglia.translucentapi.dao.GameDAO;
+import com.luhpaglia.translucentapi.dao.GamePutDAO;
 import com.luhpaglia.translucentapi.model.Game;
 import com.luhpaglia.translucentapi.service.GameService;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +17,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/catalog")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class GameController {
 
@@ -23,32 +25,35 @@ public class GameController {
     private GameService service;
 
     @GetMapping
-    public List<Game> getAllGames(){
-        return service.selectAllGames();
+    public ResponseEntity<List<Game>> getAllGames(){
+        return ResponseEntity.ok(service.selectAllGames());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Game> getGameById(@PathVariable Integer id){
+        return ResponseEntity.ok(service.selectById(id));
     }
 
     @GetMapping("/{page}/{size}")
-    public Page<Game> getGamesPageable(@PathVariable Integer page, @PathVariable Integer size){
-        return service.selectGamesPageable(page, size);
+    public ResponseEntity<Page<Game>> getGamesPageable(@PathVariable Integer page, @PathVariable Integer size){
+        return ResponseEntity.ok(service.selectGamesPageable(page, size));
     }
 
     @PostMapping
     @CrossOrigin(origins = "http://localhost:4200")
-    public List<Game> postGame(@RequestBody GameDAO dao) throws ParseException {
-        service.insertGame(dao);
-        return service.selectAllGames();
+    public ResponseEntity<Game> postGame(@RequestBody GameDAO dao) throws ParseException {
+        return ResponseEntity.ok(service.insertGame(dao));
     }
 
     @PutMapping
-    public List<Game> putGame(@RequestBody GameDAO dao){
-        service.updateGame(dao);
-        return service.selectAllGames();
+    public ResponseEntity<Game> putGame(@RequestBody GamePutDAO dao) throws ParseException {
+        return ResponseEntity.ok(service.updateGame(dao));
     }
 
     @DeleteMapping("/{id}")
-    public List<Game> putGame(@PathVariable Integer id){
+    public ResponseEntity<List<Game>> deleteGame(@PathVariable Integer id){
         service.deleteGame(id);
-        return service.selectAllGames();
+        return ResponseEntity.ok(service.selectAllGames());
     }
 
 }

@@ -1,8 +1,5 @@
-export interface Game{
+export interface PutGame{
   id: number,
-  title: string,
-  releaseYear: number,
-  console: string,
   completed: string,
   dateCompletion: string,
   personalNotes: string,

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Game } from '../models/game.module';
 import { GameService } from '../services/game.service';
 
@@ -23,7 +24,7 @@ export class NewGameComponent implements OnInit {
     urlImage: ""
   }
 
-  constructor(private service: GameService) { }
+  constructor(private service: GameService,public dialogRef: MatDialogRef<NewGameComponent>,) { }
 
   ngOnInit(): void {
   }
@@ -31,11 +32,7 @@ export class NewGameComponent implements OnInit {
   submit(): void {
     this.service.addGame(this.newGame).subscribe((games: Game[]) => {console.table(games)}
     , (error) => console.log(error));
+    this.dialogRef.close();
   }
-  isValidYear = parseInt(this.newGame.releaseYear) > 1970?true:false;
-
-  numberFormControl = new FormControl('', [
-    Validators.min(1970)
-  ]);
 
 }

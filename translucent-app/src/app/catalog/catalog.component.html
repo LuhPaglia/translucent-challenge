@@ -16,7 +16,7 @@
 
   <ng-container matColumnDef="years">
     <th mat-header-cell *matHeaderCellDef>Years</th>
-    <td mat-cell *matCellDef="let element">{{element.years}} Years</td>
+    <td mat-cell *matCellDef="let element">{{numberofYears(element.releaseYear)}} Years</td>
   </ng-container>
 
   <ng-container matColumnDef="completed">
@@ -31,7 +31,7 @@
 
   <ng-container matColumnDef="dateCompletion">
     <th mat-header-cell *matHeaderCellDef>Date Of Completion</th>
-    <td mat-cell *matCellDef="let element">{{element.dateCompletion}}</td>
+    <td mat-cell *matCellDef="let element">{{formatDate(element.dateCompletion)}}</td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

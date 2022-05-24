@@ -14,17 +14,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(NewGameComponent, {
-      width: '30%',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
-
-
 }
 
 
