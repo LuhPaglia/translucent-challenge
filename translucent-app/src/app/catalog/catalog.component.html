@@ -1,7 +1,17 @@
+<br/>
+<div class="filter">
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Filter by title</mat-label>
+    <input #title matInput type="filterString" id="filterString" [(ngModel)]="filterString" name="filterString" (change)="filter()">
+    <mat-hint>Press "RETURN" to filter</mat-hint>
+  </mat-form-field>
+</div>
+<div class="new_game">
+  <button mat-raised-button color="primary" (click)="openDialogNewGame()">New Game</button>
+</div>
+<br/>
 <div class="catalog-main">
-  <div class="new_game">
-    <button mat-raised-button color="primary" (click)="openDialogNewGame()">New Game</button>
-  </div>
+
   <table mat-table [dataSource]="listGames" class="mat-elevation-z8 demo-table">
 
     <ng-container matColumnDef="id">
@@ -16,7 +26,7 @@
 
     <ng-container matColumnDef="years">
       <th mat-header-cell *matHeaderCellDef>Years</th>
-      <td mat-cell *matCellDef="let element">{{numberofYears(element.releaseYear)}} Years</td>
+      <td mat-cell *matCellDef="let element">{{numberofYears(element.releaseYear)}} Years Old</td>
     </ng-container>
 
     <ng-container matColumnDef="completed">

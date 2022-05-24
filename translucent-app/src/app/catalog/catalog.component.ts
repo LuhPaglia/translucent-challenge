@@ -1,3 +1,4 @@
+import { filter, map } from 'rxjs';
 import { GameService } from './../services/game.service';
 import { Component } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
@@ -15,13 +16,22 @@ export class CatalogComponent{
 
   constructor(public dialog: MatDialog, private service: GameService) {}
 
+  filterString = "";
+
   listGames: Game[] = [];
 
   ngOnInit(): void {
-    this.service.getAllGames().subscribe((games: Game[]) => this.listGames = games);
+    this.service.getAllGames()
+    .subscribe((games: Game[]) => this.listGames = games);
   }
 
   displayedColumns: string[] = ['id', 'title', 'years', 'completed', 'console', 'dateCompletion'];
+
+  filter(){
+    this.service.getAllGames()
+    .pipe(map(games => games.filter(game => game.title.toLowerCase().includes(this.filterString.toLocaleLowerCase()))))
+    .subscribe((games: Game[]) => this.listGames = games);
+  }
 
   openDialogDetails(data: Game): void {
     const dialogRef = this.dialog.open(GameDetailsComponent, {
