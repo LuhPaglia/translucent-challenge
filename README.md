@@ -2,7 +2,7 @@
 
 This challenge was developed for the company Translucent as part of the technical assessment.
 
-## 🚀 
+## 🚀 Structure
 
 The application is divided into two parts, an API developed in JAVA for the Backend and an APP developed in ANGULAR for the Frontend
 
